@@ -48,13 +48,13 @@ public class CollectdCrypto {
 
   @NotNull
   public static IvParameterSpec getIvParameterSpec() {
-    SecureRandom random                    = new SecureRandom();
+    SecureRandom secure_random             = new SecureRandom();
     byte         iv_parameter_spec_bytes[] = new byte[16];
 
-    random.nextBytes(iv_parameter_spec_bytes);
-    IvParameterSpec iv_spec = new IvParameterSpec(iv_parameter_spec_bytes);
+    secure_random.nextBytes(iv_parameter_spec_bytes);
+    IvParameterSpec iv_parameter_spec = new IvParameterSpec(iv_parameter_spec_bytes);
 
-    return iv_spec;
+    return iv_parameter_spec;
   }
 
   @NotNull

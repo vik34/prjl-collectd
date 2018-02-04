@@ -609,15 +609,18 @@ public class CollectdPart {
       setString(bytes);
     }
 
-    public StringPart setString(String string) throws UnsupportedEncodingException {
+    @NotNull
+    public StringPart setString(@NotNull String string) throws UnsupportedEncodingException {
       return setString(string.getBytes(CHARSET_NAME));
     }
 
+    @NotNull
     public String getString() throws UnsupportedEncodingException {
       return new String(mData, 0, mData.length - 1, CHARSET_NAME);
     }
 
-    public StringPart setString(byte[] bytes) {
+    @NotNull
+    public StringPart setString(@NotNull byte[] bytes) {
       if(bytes.length == 0 || bytes[bytes.length - 1] != '\0') {
         bytes = ByteBuffer
             .allocate(bytes.length + 1)
